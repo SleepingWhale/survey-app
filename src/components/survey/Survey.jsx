@@ -54,62 +54,68 @@ export class Survey extends PureComponent {
     const { reply, text, id, type } = question;
 
     return (
-      <div className="container">
-        <div className="card w-50 border-primary">
-          <div className="card-header bg-primary text-white">
-            {isSubmitted ? 'Submitted' : `${questionIndex + 1} / ${quantity}`}
-          </div>
-          <div className="card-body">
-            {isSubmitted ? (
-              <div className="card-text">
-                <SubmitViewContainer />
+      <div className="container py-3">
+        <div className="row">
+          <div className="col-md-5 mx-auto">
+            <div className="card border-primary">
+              <div className="card-header bg-primary text-white">
+                {isSubmitted
+                  ? 'Submitted'
+                  : `${questionIndex + 1} / ${quantity}`}
               </div>
-            ) : (
-              <Fragment>
-                <ControlSwitch
-                  onChange={this.handleChange}
-                  value={reply}
-                  question={text}
-                  id={id}
-                  type={type}
-                />
-                {!isValid && (
-                  <div className="form-group">
-                    <span className="badge badge-danger">
-                      {' '}
-                      {validationMessages[type]}{' '}
-                    </span>
+              <div className="card-body">
+                {isSubmitted ? (
+                  <div className="card-text">
+                    <SubmitViewContainer />
                   </div>
+                ) : (
+                  <Fragment>
+                    <ControlSwitch
+                      onChange={this.handleChange}
+                      value={reply}
+                      question={text}
+                      id={id}
+                      type={type}
+                    />
+                    {!isValid && (
+                      <div className="form-group">
+                        <span className="badge badge-danger">
+                          {' '}
+                          {validationMessages[type]}{' '}
+                        </span>
+                      </div>
+                    )}
+                    <div className="d-flex justify-content-between">
+                      <button
+                        type="button"
+                        className="btn btn-outline-primary"
+                        onClick={onClickPrevious}
+                        disabled={previousDisabled}
+                      >
+                        Previous
+                      </button>
+                      {isLastQuestion ? (
+                        <button
+                          type="button"
+                          className="btn btn-outline-primary"
+                          onClick={this.handleSubmit}
+                        >
+                          Submit
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          className="btn btn-outline-primary"
+                          onClick={this.handleNext}
+                        >
+                          Next
+                        </button>
+                      )}
+                    </div>
+                  </Fragment>
                 )}
-                <div className="d-flex justify-content-between">
-                  <button
-                    type="button"
-                    className="btn btn-outline-primary"
-                    onClick={onClickPrevious}
-                    disabled={previousDisabled}
-                  >
-                    Previous
-                  </button>
-                  {isLastQuestion ? (
-                    <button
-                      type="button"
-                      className="btn btn-outline-primary"
-                      onClick={this.handleSubmit}
-                    >
-                      Submit
-                    </button>
-                  ) : (
-                    <button
-                      type="button"
-                      className="btn btn-outline-primary"
-                      onClick={this.handleNext}
-                    >
-                      Next
-                    </button>
-                  )}
-                </div>
-              </Fragment>
-            )}
+              </div>
+            </div>
           </div>
         </div>
       </div>
