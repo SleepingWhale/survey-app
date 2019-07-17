@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
 
 export class InputNumber extends Component {
@@ -13,6 +13,15 @@ export class InputNumber extends Component {
     question: ''
   };
 
+  constructor(props) {
+    super(props);
+    this.input = createRef();
+  }
+
+  componentDidMount() {
+    this.input.current.focus();
+  }
+
   onChange = e => {
     const { onChange } = this.props;
     const { value } = e.target;
@@ -26,6 +35,7 @@ export class InputNumber extends Component {
       <div className="form-group">
         <label htmlFor={id}>{question}</label>
         <input
+          ref={this.input}
           type="number"
           className="form-control"
           onChange={this.onChange}

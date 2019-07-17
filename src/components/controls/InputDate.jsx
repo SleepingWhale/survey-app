@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import { enGB } from 'date-fns/locale';
@@ -19,6 +19,15 @@ export class InputDate extends Component {
     value: null
   };
 
+  constructor(props) {
+    super(props);
+    this.datePicker = createRef();
+  }
+
+  componentDidMount() {
+    this.datePicker.current.input.focus();
+  }
+
   onChange = e => {
     const { onChange } = this.props;
     const { value } = e.target;
@@ -33,6 +42,7 @@ export class InputDate extends Component {
         <label htmlFor={id}>{question}</label>
         <br />
         <DatePicker
+          ref={this.datePicker}
           id={id}
           selected={value}
           onChange={onChange}

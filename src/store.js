@@ -1,21 +1,22 @@
 import { combineReducers, createStore } from 'redux';
 import { surveyReducer } from './components/survey';
+import { types } from './common';
 import initialData from './data';
 
 function setDefaultValue(question) {
   let reply;
 
   switch (question.type) {
-    case 'string':
+    case types.string:
       reply = '';
       break;
-    case 'number':
+    case types.number:
       reply = 0;
       break;
-    case 'date':
+    case types.date:
       reply = null;
       break;
-    case 'boolean':
+    case types.boolean:
       reply = false;
       break;
     default:

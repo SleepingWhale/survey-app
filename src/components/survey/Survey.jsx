@@ -56,7 +56,7 @@ export class Survey extends PureComponent {
     return (
       <div className="container py-3">
         <div className="row">
-          <div className="col-md-5 mx-auto">
+          <div className="col-md-6 mx-auto">
             <div className="card border-primary">
               <div className="card-header bg-primary text-white">
                 {isSubmitted
@@ -76,6 +76,7 @@ export class Survey extends PureComponent {
                       question={text}
                       id={id}
                       type={type}
+                      key={id}
                     />
                     {!isValid && (
                       <div className="form-group">
