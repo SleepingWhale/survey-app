@@ -5,7 +5,7 @@ export const LEAF_NEXT = 'survey-app/survey/LEAF_NEXT';
 export const LEAF_PREVIOUS = 'survey-app/survey/LEAF_PREVIOUS';
 
 // Reducer
-const initState = {
+export const initState = {
   questions: [],
   quantity: 0,
   currentQuestion: 0
@@ -55,9 +55,10 @@ export function surveyReducer(state = initState, action = {}) {
 }
 
 // Action Creators
-export function initSurvey() {
+export function initSurvey(data) {
   return {
-    type: INIT
+    type: INIT,
+    data
   };
 }
 
