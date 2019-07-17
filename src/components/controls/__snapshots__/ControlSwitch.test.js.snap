@@ -1,0 +1,244 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ControlSwitch should render control for boolean type 1`] = `
+<ControlSwitch
+  id="id"
+  onChange={[MockFunction]}
+  question="question"
+  type="boolean"
+  value={false}
+>
+  <InputCheckbox
+    id="id"
+    onChange={[MockFunction]}
+    question="question"
+    value={false}
+  >
+    <div
+      className="form-group"
+    >
+      <div
+        className="form-check"
+      >
+        <input
+          checked={false}
+          className="form-check-input"
+          id="id"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <label
+          className="form-check-label"
+          htmlFor="id"
+        >
+          question
+        </label>
+      </div>
+    </div>
+  </InputCheckbox>
+</ControlSwitch>
+`;
+
+exports[`ControlSwitch should render control for date type 1`] = `
+<ControlSwitch
+  id="id"
+  onChange={[MockFunction]}
+  question="question"
+  type="date"
+  value={2019-07-17T16:46:42.751Z}
+>
+  <InputDate
+    id="id"
+    onChange={[MockFunction]}
+    question="question"
+    value={2019-07-17T16:46:42.751Z}
+  >
+    <div
+      className="form-group"
+    >
+      <label
+        htmlFor="id"
+      >
+        question
+      </label>
+      <br />
+      <DatePicker
+        allowSameDay={false}
+        autoComplete="off"
+        className="form-control"
+        dateFormat="MM/dd/yyyy"
+        dateFormatCalendar="LLLL yyyy"
+        disabled={false}
+        disabledKeyboardNavigation={false}
+        dropdownMode="scroll"
+        id="id"
+        inlineFocusSelectedMonth={false}
+        locale="enGB"
+        monthsShown={1}
+        nextMonthButtonLabel="Next month"
+        onBlur={[Function]}
+        onChange={[MockFunction]}
+        onClickOutside={[Function]}
+        onFocus={[Function]}
+        onInputClick={[Function]}
+        onInputError={[Function]}
+        onKeyDown={[Function]}
+        onMonthChange={[Function]}
+        onSelect={[Function]}
+        onYearChange={[Function]}
+        preventOpenOnFocus={false}
+        previousMonthButtonLabel="Previous Month"
+        readOnly={false}
+        renderDayContents={[Function]}
+        selected={2019-07-17T16:46:42.751Z}
+        shouldCloseOnSelect={true}
+        showMonthYearPicker={false}
+        showTimeInput={false}
+        showTimeSelect={false}
+        strictParsing={false}
+        timeCaption="Time"
+        timeInputLabel="Time"
+        timeIntervals={30}
+        withPortal={false}
+      >
+        <PopperComponent
+          hidePopper={true}
+          popperComponent={null}
+          popperModifiers={
+            Object {
+              "preventOverflow": Object {
+                "boundariesElement": "viewport",
+                "enabled": true,
+                "escapeWithReference": true,
+              },
+            }
+          }
+          popperPlacement="bottom-start"
+          popperProps={Object {}}
+          targetComponent={
+            <div
+              className="react-datepicker__input-container"
+            >
+              <input
+                autoComplete="off"
+                className="form-control"
+                disabled={false}
+                id="id"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={false}
+                type="text"
+                value="07/17/2019"
+              />
+            </div>
+          }
+        >
+          <Manager>
+            <Reference>
+              <InnerReference
+                setReferenceNode={[Function]}
+              >
+                <div
+                  className="react-datepicker-wrapper"
+                >
+                  <div
+                    className="react-datepicker__input-container"
+                  >
+                    <input
+                      autoComplete="off"
+                      className="form-control"
+                      disabled={false}
+                      id="id"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      readOnly={false}
+                      type="text"
+                      value="07/17/2019"
+                    />
+                  </div>
+                </div>
+              </InnerReference>
+            </Reference>
+          </Manager>
+        </PopperComponent>
+      </DatePicker>
+    </div>
+  </InputDate>
+</ControlSwitch>
+`;
+
+exports[`ControlSwitch should render control for number type 1`] = `
+<ControlSwitch
+  id="id"
+  onChange={[MockFunction]}
+  question="question"
+  type="number"
+  value={55}
+>
+  <Input
+    id="id"
+    onChange={[MockFunction]}
+    question="question"
+    value={55}
+  >
+    <div
+      className="form-group"
+    >
+      <label
+        htmlFor="id"
+      >
+        question
+      </label>
+      <input
+        autoComplete="off"
+        className="form-control"
+        id="id"
+        onChange={[Function]}
+        type="number"
+        value={55}
+      />
+    </div>
+  </Input>
+</ControlSwitch>
+`;
+
+exports[`ControlSwitch should render control for string type 1`] = `
+<ControlSwitch
+  id="id"
+  onChange={[MockFunction]}
+  question="question"
+  type="string"
+  value="hello world"
+>
+  <Input
+    id="id"
+    onChange={[MockFunction]}
+    question="question"
+    value="hello world"
+  >
+    <div
+      className="form-group"
+    >
+      <label
+        htmlFor="id"
+      >
+        question
+      </label>
+      <input
+        autoComplete="off"
+        className="form-control"
+        id="id"
+        onChange={[Function]}
+        type="text"
+        value="hello world"
+      />
+    </div>
+  </Input>
+</ControlSwitch>
+`;

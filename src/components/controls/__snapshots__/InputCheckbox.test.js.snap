@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputCheckbox should render correctly 1`] = `
+<InputCheckbox
+  id="id"
+  onChange={[MockFunction]}
+  question="question"
+  value={false}
+>
+  <div
+    className="form-group"
+  >
+    <div
+      className="form-check"
+    >
+      <input
+        checked={false}
+        className="form-check-input"
+        id="id"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <label
+        className="form-check-label"
+        htmlFor="id"
+      >
+        question
+      </label>
+    </div>
+  </div>
+</InputCheckbox>
+`;

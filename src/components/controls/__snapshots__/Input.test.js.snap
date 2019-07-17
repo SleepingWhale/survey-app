@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputNumber should render correctly 1`] = `
+<Input
+  id="id"
+  onChange={[MockFunction]}
+  question="question"
+  value="111"
+>
+  <div
+    className="form-group"
+  >
+    <label
+      htmlFor="id"
+    >
+      question
+    </label>
+    <input
+      autoComplete="off"
+      className="form-control"
+      id="id"
+      onChange={[Function]}
+      type="number"
+      value="111"
+    />
+  </div>
+</Input>
+`;
+
+exports[`InputText should render correctly 1`] = `
+<Input
+  id="id"
+  onChange={[MockFunction]}
+  question="question"
+  value="text"
+>
+  <div
+    className="form-group"
+  >
+    <label
+      htmlFor="id"
+    >
+      question
+    </label>
+    <input
+      autoComplete="off"
+      className="form-control"
+      id="id"
+      onChange={[Function]}
+      type="text"
+      value="text"
+    />
+  </div>
+</Input>
+`;
