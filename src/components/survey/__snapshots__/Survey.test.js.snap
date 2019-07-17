@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Survey should render correctly 1`] = `
+<div
+  className="container py-3"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-6 mx-auto"
+    >
+      <div
+        className="card border-primary"
+      >
+        <div
+          className="card-header bg-primary text-white"
+          id="survey-header"
+        >
+          1 / 3
+        </div>
+        <div
+          className="card-body"
+        >
+          <ControlSwitch
+            id="A01"
+            key="A01"
+            onChange={[Function]}
+            question="What happened to your product?"
+            type="string"
+            value="Got lost"
+          />
+          <div
+            className="d-flex justify-content-between"
+          >
+            <button
+              className="btn btn-outline-primary"
+              disabled={true}
+              id="survey-button-previous"
+              onClick={[MockFunction]}
+              type="button"
+            >
+              Previous
+            </button>
+            <button
+              className="btn btn-outline-primary"
+              id="survey-button-next"
+              onClick={[Function]}
+              type="button"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

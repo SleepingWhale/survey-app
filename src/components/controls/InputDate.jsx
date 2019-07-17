@@ -25,7 +25,9 @@ export class InputDate extends Component {
   }
 
   componentDidMount() {
-    this.datePicker.current.input.focus();
+    const { value } = this.props;
+
+    if (value == null) this.datePicker.current.input.focus();
   }
 
   onChange = e => {

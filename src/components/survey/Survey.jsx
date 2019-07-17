@@ -58,7 +58,10 @@ export class Survey extends PureComponent {
         <div className="row">
           <div className="col-md-6 mx-auto">
             <div className="card border-primary">
-              <div className="card-header bg-primary text-white">
+              <div
+                className="card-header bg-primary text-white"
+                id="survey-header"
+              >
                 {isSubmitted
                   ? 'Submitted'
                   : `${questionIndex + 1} / ${quantity}`}
@@ -79,7 +82,7 @@ export class Survey extends PureComponent {
                       key={id}
                     />
                     {!isValid && (
-                      <div className="form-group">
+                      <div className="form-group" id="survey-validation">
                         <span className="badge badge-danger">
                           {' '}
                           {validationMessages[type]}{' '}
@@ -92,6 +95,7 @@ export class Survey extends PureComponent {
                         className="btn btn-outline-primary"
                         onClick={onClickPrevious}
                         disabled={previousDisabled}
+                        id="survey-button-previous"
                       >
                         Previous
                       </button>
@@ -100,6 +104,7 @@ export class Survey extends PureComponent {
                           type="button"
                           className="btn btn-outline-primary"
                           onClick={this.handleSubmit}
+                          id="survey-button-submit"
                         >
                           Submit
                         </button>
@@ -108,6 +113,7 @@ export class Survey extends PureComponent {
                           type="button"
                           className="btn btn-outline-primary"
                           onClick={this.handleNext}
+                          id="survey-button-next"
                         >
                           Next
                         </button>
