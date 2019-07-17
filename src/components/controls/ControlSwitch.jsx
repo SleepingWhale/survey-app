@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { InputText } from './InputText';
-import { InputNumber } from './InputNumber';
+import { InputText, InputNumber } from './Input';
 import { InputCheckbox } from './InputCheckbox';
 import { InputDate } from './InputDate';
 import { types } from '../../common';
