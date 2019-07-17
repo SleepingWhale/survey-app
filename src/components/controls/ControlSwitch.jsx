@@ -18,9 +18,11 @@ export const ControlSwitch = ({ type, ...rest }) => {
 
   if (!Control)
     return (
-      <p>
-        Something wrong with this question. Please, proceed to the next one.
-      </p>
+      <div className="form-group">
+        <span className="badge badge-info">
+          Something wrong with this question. Please, proceed to the next one.
+        </span>
+      </div>
     );
 
   return <Control {...rest} />;

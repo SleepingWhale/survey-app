@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { ControlSwitch } from '../controls';
-import { Validators, validationMessages } from '../../common';
+import { Validators, validationMessages, types } from '../../common';
 
 export class Survey extends PureComponent {
   state = {
@@ -13,6 +13,11 @@ export class Survey extends PureComponent {
 
   handleNext = () => {
     const { question, onClickNext } = this.props;
+
+    if (!Object.hasOwnProperty.call(types, question.type)) {
+      onClickNext();
+      return;
+    }
 
     if (Validators[question.type](question.reply)) {
       this.setState({ isValid: true });
