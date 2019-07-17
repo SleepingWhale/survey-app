@@ -1,2 +1,2 @@
 export { Validators } from './utils';
-export { types } from './constants';
+export { types, validationMessages } from './constants';
