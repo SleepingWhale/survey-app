@@ -32,6 +32,7 @@ export class InputText extends Component {
           onChange={this.onChange}
           value={value}
           id={id}
+          autoComplete="off"
         />
       </div>
     );

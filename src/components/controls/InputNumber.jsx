@@ -33,6 +33,7 @@ export class InputNumber extends Component {
           min="0"
           step="0.01"
           id={id}
+          autoComplete="off"
         />
       </div>
     );

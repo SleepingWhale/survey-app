@@ -92,3 +92,7 @@ export function getQuantity(state) {
 export function getCurrentQuestionIndex(state) {
   return state.survey.currentQuestion;
 }
+
+export function getAllQuestions(state) {
+  return state.survey.questions;
+}

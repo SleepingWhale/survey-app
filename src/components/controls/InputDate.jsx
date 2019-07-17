@@ -38,6 +38,7 @@ export class InputDate extends Component {
           onChange={onChange}
           className="form-control"
           locale="enGB"
+          autoComplete="off"
         />
       </div>
     );

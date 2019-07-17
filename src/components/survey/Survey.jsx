@@ -1,25 +1,39 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import { ControlSwitch } from '../controls';
+import { SubmitViewContainer } from '../submitView';
 import { Validators, validationMessages, types } from '../../common';
 
 export class Survey extends PureComponent {
   state = {
-    isValid: true
+    isValid: true,
+    isSubmitted: false
+  };
+
+  validate = () => {
+    const { question } = this.props;
+
+    if (!Object.hasOwnProperty.call(types, question.type)) {
+      return true;
+    }
+
+    return Validators[question.type](question.reply);
   };
 
   handleSubmit = () => {
-    console.log('submit');
+    const isValid = this.validate();
+
+    if (isValid) {
+      this.setState({ isValid: true, isSubmitted: true });
+    } else {
+      this.setState({ isValid: false });
+    }
   };
 
   handleNext = () => {
-    const { question, onClickNext } = this.props;
+    const { onClickNext } = this.props;
+    const isValid = this.validate();
 
-    if (!Object.hasOwnProperty.call(types, question.type)) {
-      onClickNext();
-      return;
-    }
-
-    if (Validators[question.type](question.reply)) {
+    if (isValid) {
       this.setState({ isValid: true });
       onClickNext();
     } else {
@@ -34,7 +48,7 @@ export class Survey extends PureComponent {
 
   render() {
     const { question, quantity, questionIndex, onClickPrevious } = this.props;
-    const { isValid } = this.state;
+    const { isValid, isSubmitted } = this.state;
     const previousDisabled = questionIndex === 0;
     const isLastQuestion = quantity === questionIndex + 1;
     const { reply, text, id, type } = question;
@@ -43,51 +57,59 @@ export class Survey extends PureComponent {
       <div className="container">
         <div className="card w-50 border-primary">
           <div className="card-header bg-primary text-white">
-            {`${questionIndex + 1} / ${quantity}`}
+            {isSubmitted ? 'Submitted' : `${questionIndex + 1} / ${quantity}`}
           </div>
           <div className="card-body">
-            <ControlSwitch
-              onChange={this.handleChange}
-              value={reply}
-              question={text}
-              id={id}
-              type={type}
-            />
-            {!isValid && (
-              <div className="form-group">
-                <span className="badge badge-danger">
-                  {' '}
-                  {validationMessages[type]}{' '}
-                </span>
+            {isSubmitted ? (
+              <div className="card-text">
+                <SubmitViewContainer />
               </div>
+            ) : (
+              <Fragment>
+                <ControlSwitch
+                  onChange={this.handleChange}
+                  value={reply}
+                  question={text}
+                  id={id}
+                  type={type}
+                />
+                {!isValid && (
+                  <div className="form-group">
+                    <span className="badge badge-danger">
+                      {' '}
+                      {validationMessages[type]}{' '}
+                    </span>
+                  </div>
+                )}
+                <div className="d-flex justify-content-between">
+                  <button
+                    type="button"
+                    className="btn btn-outline-primary"
+                    onClick={onClickPrevious}
+                    disabled={previousDisabled}
+                  >
+                    Previous
+                  </button>
+                  {isLastQuestion ? (
+                    <button
+                      type="button"
+                      className="btn btn-outline-primary"
+                      onClick={this.handleSubmit}
+                    >
+                      Submit
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className="btn btn-outline-primary"
+                      onClick={this.handleNext}
+                    >
+                      Next
+                    </button>
+                  )}
+                </div>
+              </Fragment>
             )}
-            <div className="d-flex justify-content-between">
-              <button
-                type="button"
-                className="btn btn-outline-primary"
-                onClick={onClickPrevious}
-                disabled={previousDisabled}
-              >
-                Previous
-              </button>
-              {isLastQuestion ? (
-                <button
-                  type="button"
-                  className="btn btn-outline-primary"
-                  onClick={this.handleSubmit}
-                >
-                  Submit
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  className="btn btn-outline-primary"
-                  onClick={this.handleNext}
-                >
-                  Next
-                </button>
-              )}
-            </div>
           </div>
         </div>
       </div>
