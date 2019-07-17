@@ -1,2 +1,2 @@
 export { SurveyContainer } from './Survey.container';
-export { questionsReducer } from './Survey.redux';
+export { surveyReducer } from './Survey.redux';

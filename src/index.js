@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.css';
+import './styles/global.css';
 import { SurveyContainer } from './components/survey';
 import { store } from './store';
 

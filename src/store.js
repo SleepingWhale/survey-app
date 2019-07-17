@@ -1,5 +1,5 @@
 import { combineReducers, createStore } from 'redux';
-import { questionsReducer } from './components/survey';
+import { surveyReducer } from './components/survey';
 import initialData from './data';
 
 function setDefaultValue(question) {
@@ -42,12 +42,18 @@ function prepareData({ questions }) {
   return result;
 }
 
+const questions = prepareData(initialData);
+
 export const store = createStore(
   combineReducers({
-    questions: questionsReducer
+    survey: surveyReducer
   }),
   {
-    questions: prepareData(initialData)
+    survey: {
+      questions,
+      quantity: questions.length,
+      currentQuestion: 0
+    }
   },
   window !== 'undefined' &&
     window.__REDUX_DEVTOOLS_EXTENSION__ &&

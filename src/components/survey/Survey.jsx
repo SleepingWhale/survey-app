@@ -1,30 +1,44 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import { InputText, InputNumber, InputCheckbox, InputDate } from '../controls';
 
-export class Survey extends Component {
-  state = {
-    questionIndex: 0
-  };
+const Controls = {
+  string: InputText,
+  number: InputNumber,
+  boolean: InputCheckbox,
+  date: InputDate
+};
 
+const Stub = () => <p>Unexpected control type</p>;
+
+export class Survey extends PureComponent {
   handleNext = () => {
     const { questionIndex } = this.state;
     this.setState({ questionIndex: questionIndex + 1 });
-  };
-
-  handlePrevious = () => {
-    const { questionIndex } = this.state;
-    this.setState({ questionIndex: questionIndex - 1 });
   };
 
   handleSubmit = () => {
     console.log('submit');
   };
 
-  render() {
-    const { questions } = this.props;
+  onChange = value => {
+    const { onChange } = this.props;
     const { questionIndex } = this.state;
-    const quantity = questions.length;
+
+    onChange(questionIndex, value);
+  };
+
+  render() {
+    const {
+      question,
+      quantity,
+      questionIndex,
+      onClickNext,
+      onClickPrevious
+    } = this.props;
     const previousDisabled = questionIndex === 0;
     const isLastQuestion = quantity === questionIndex + 1;
+    const { reply, text, id, type } = question;
+    const Control = Controls[type] || Stub;
 
     return (
       <div className="container">
@@ -33,12 +47,17 @@ export class Survey extends Component {
             {`${questionIndex + 1} / ${quantity}`}
           </div>
           <div className="card-body">
-            <h5 className="card-title">{questions[questionIndex].text}</h5>
+            <Control
+              onChange={this.onChange}
+              value={reply}
+              question={text}
+              id={id}
+            />
             <div className="d-flex justify-content-between">
               <button
                 type="button"
                 className="btn btn-outline-primary"
-                onClick={this.handlePrevious}
+                onClick={onClickPrevious}
                 disabled={previousDisabled}
               >
                 Previous
@@ -55,7 +74,7 @@ export class Survey extends Component {
                 <button
                   type="button"
                   className="btn btn-outline-primary"
-                  onClick={this.handleNext}
+                  onClick={onClickNext}
                 >
                   Next
                 </button>
