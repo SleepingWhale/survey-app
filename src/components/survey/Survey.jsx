@@ -1,14 +1,5 @@
 import React, { PureComponent } from 'react';
-import { InputText, InputNumber, InputCheckbox, InputDate } from '../controls';
-
-const Controls = {
-  string: InputText,
-  number: InputNumber,
-  boolean: InputCheckbox,
-  date: InputDate
-};
-
-const Stub = () => <p>Unexpected control type</p>;
+import { ControlSwitch } from '../controls';
 
 export class Survey extends PureComponent {
   handleNext = () => {
@@ -38,7 +29,6 @@ export class Survey extends PureComponent {
     const previousDisabled = questionIndex === 0;
     const isLastQuestion = quantity === questionIndex + 1;
     const { reply, text, id, type } = question;
-    const Control = Controls[type] || Stub;
 
     return (
       <div className="container">
@@ -47,11 +37,12 @@ export class Survey extends PureComponent {
             {`${questionIndex + 1} / ${quantity}`}
           </div>
           <div className="card-body">
-            <Control
+            <ControlSwitch
               onChange={this.onChange}
               value={reply}
               question={text}
               id={id}
+              type={type}
             />
             <div className="d-flex justify-content-between">
               <button
