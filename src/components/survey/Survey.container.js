@@ -19,8 +19,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onChange(index, value) {
-      dispatch(updateReply(index, value));
+    onChange(value) {
+      dispatch(updateReply(value));
     },
     onClickNext() {
       dispatch(leafNext());

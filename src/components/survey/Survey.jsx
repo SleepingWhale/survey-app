@@ -13,9 +13,8 @@ export class Survey extends PureComponent {
 
   onChange = value => {
     const { onChange } = this.props;
-    const { questionIndex } = this.state;
 
-    onChange(questionIndex, value);
+    onChange(value);
   };
 
   render() {

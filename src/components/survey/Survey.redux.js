@@ -21,18 +21,19 @@ export function surveyReducer(state = initState, action = {}) {
       };
     }
     case UPDATE_REPLY: {
-      const { index, value } = action;
-      const question = state[index];
+      const { value } = action;
+      const { currentQuestion, questions } = state;
+      const question = questions[currentQuestion];
 
       return {
         ...state,
         questions: [
-          ...state.slice(0, index),
+          ...questions.slice(0, currentQuestion),
           {
             ...question,
             reply: value
           },
-          ...state.slice(index + 1)
+          ...questions.slice(currentQuestion + 1)
         ]
       };
     }
@@ -60,10 +61,9 @@ export function initSurvey() {
   };
 }
 
-export function updateReply(index, value) {
+export function updateReply(value) {
   return {
     type: UPDATE_REPLY,
-    index,
     value
   };
 }
