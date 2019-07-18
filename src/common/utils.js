@@ -12,6 +12,6 @@ export class Validators {
     let _value = value;
     if (this.string(value) && /^-?\d*[.,]?\d*$/.test(value))
       _value = parseFloat(_value);
-    return typeof _value === 'number' && Number.isFinite(_value);
+    return typeof _value === 'number' && Number.isFinite(_value) && _value > 0;
   };
 }
