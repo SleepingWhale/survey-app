@@ -53,3 +53,4 @@ const getInput = type => {
 
 export const InputText = getInput('text');
 export const InputNumber = getInput('number');
+export const InputEmail = getInput('email');

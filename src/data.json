@@ -74,7 +74,7 @@
       "id": "C03",
       "text": "Please provide us with a contact email address?",
       "reply": "",
-      "type": "string",
+      "type": "email",
       "next": null
     },
     {

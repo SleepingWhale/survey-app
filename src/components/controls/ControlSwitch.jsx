@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { InputText, InputNumber } from './Input';
+import { InputText, InputNumber, InputEmail } from './Input';
 import { InputCheckbox } from './InputCheckbox';
 import { InputDate } from './InputDate';
 import { types } from '../../common';
@@ -9,7 +9,8 @@ const Controls = {
   [types.string]: InputText,
   [types.number]: InputNumber,
   [types.boolean]: InputCheckbox,
-  [types.date]: InputDate
+  [types.date]: InputDate,
+  [types.email]: InputEmail
 };
 
 export const ControlSwitch = ({ type, ...rest }) => {

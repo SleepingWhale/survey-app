@@ -45,4 +45,14 @@ describe('Validators', () => {
     expect(Validators.string(null)).toBeFalsy();
     expect(Validators.boolean('true')).toBeFalsy();
   });
+
+  it('should validate emails', () => {
+    expect(Validators.email('name@domain.com')).toBeTruthy();
+    expect(Validators.email('nameWithNumber123@domain.com')).toBeTruthy();
+    expect(Validators.email('nameWith.dot@domain.com')).toBeTruthy();
+    expect(Validators.email('name@domain.withSubdomain.com')).toBeTruthy();
+    expect(Validators.email('withoutAt.com')).toBeFalsy();
+    expect(Validators.email('without@topDomain')).toBeFalsy();
+    expect(Validators.email('@withoutName.com')).toBeFalsy();
+  });
 });
