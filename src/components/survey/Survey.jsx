@@ -2,6 +2,7 @@ import React, { PureComponent, Fragment } from 'react';
 import { ControlSwitch } from '../controls';
 import { SubmitViewContainer } from '../submitView';
 import { Validators, validationMessages, types } from '../../common';
+import { UserInfo } from '../UserInfor';
 
 export class Survey extends PureComponent {
   state = {
@@ -62,9 +63,14 @@ export class Survey extends PureComponent {
                 className="card-header bg-primary text-white"
                 id="survey-header"
               >
-                {isSubmitted
-                  ? 'Submitted'
-                  : `${questionIndex + 1} / ${quantity}`}
+                <div className="d-flex justify-content-between align-items-center">
+                  <div>
+                    {isSubmitted
+                      ? 'Submitted'
+                      : `${questionIndex + 1} / ${quantity}`}
+                  </div>
+                  <UserInfo />
+                </div>
               </div>
               <div className="card-body">
                 {isSubmitted ? (
