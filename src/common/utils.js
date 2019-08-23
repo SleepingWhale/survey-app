@@ -21,3 +21,42 @@ export class Validators {
     return reEmail.test(String(value).toLowerCase());
   };
 }
+
+export class LSHelper {
+  static get(key) {
+    let value;
+
+    try {
+      value = JSON.parse(localStorage.getItem(key));
+    } catch (e) {
+      if (localStorage[key]) {
+        value = { data: localStorage.getItem(key) };
+      }
+    }
+
+    if (
+      value &&
+      typeof value === 'object' &&
+      typeof value.data !== 'undefined'
+    ) {
+      return value.data;
+    }
+
+    return undefined;
+  }
+
+  static set(key, value) {
+    try {
+      localStorage.setItem(key, JSON.stringify({ data: value }));
+    } catch (e) {
+      if (console)
+        console.warn(
+          `didn't save the "${key}": "${value}" pair, because the localStorage is full.`
+        );
+    }
+  }
+
+  static remove(key) {
+    localStorage.removeItem(key);
+  }
+}
